@@ -13,7 +13,15 @@ const animeSchema = new Schema(
       type: String,
       required: true,
     },
-    password: {
+    characters: {
+      type: String,
+      required: true,
+    },
+    genre: {
+      type: String,
+      required: true,
+    },
+    airDate: {
       type: String,
       required: true
     }

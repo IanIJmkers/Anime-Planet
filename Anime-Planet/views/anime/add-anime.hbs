@@ -1,16 +1,27 @@
 <h1>Add Anime</h1>
 
 <form method="post" action="/anime/create">
-    <label for="name">name
-        <input name="name" type="text"/>
+    <label for="title">Title
+        <input name="title" type="text"/>
     </label>
 
-    <label for="occupation">occupation
-        <input name="occupation" type="text"/>
+    <label for="description">Description
+        <input name="description" type="text"/>
     </label>
 
-    <label for="catchPhrase">catch phrase
-        <input name="catchPhrase" type="text"/>
+    <label for="characters">Characters
+        <input name="characters" type="text"/>
+    </label>
+
+{{!-- drop down option --}}
+    <label for="genre">Genre
+        <input name="genre" type="text"/>
+    </label>
+
+{{!-- drop down option --}}
+    <label for="airDate">Date Aired From
+        <input name="airDate" type="text"/>
     </label>
     <button>Create an Anime</button>
 </form>
+

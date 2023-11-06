@@ -13,7 +13,7 @@ router.get("/anime/anime-library", (req, res,) => {
   .then((response) => {
     console.log(response);
   
-  res.render("anime/anime-library.hbs", { animes: response });
+  res.render("anime/anime-library.hbs", { anime: response });
   })
 });
 
@@ -24,16 +24,35 @@ router.get("/anime/anime-library", (req, res,) => {
 // GET
 
 router.get('/anime/create', (req, res) => {
-  res.render("anime/add-anime.hbs");
+  res.render("anime/add-anime");
   // ^^^syntax important 
 });
 
 // POST
-
+router.post('/anime/create', (req, res) => {
+  const newAnime = req.body;
+  Anime.create(newAnime)
+  .then((response) => {
+    console.log(response);
+    res.redirect("/anime/anime-library");
+  }).catch((error) => {
+    console.log(error);
+  });
+});
 /////////////////////// SINGLE ANIME ///////////////////////////////////
 // GET Single Anime
 
-// GET
+// GET 
+router.get("/anime/:id", (req, res) => {
+  const animeId = req.params.id;
+  Anime.findById(animeId)
+  .then((response) => {
+    console.log(response);
+    res.render("anime/anime.hbs", { anime: response });
+  }) .catch((error) => {
+    console.log(error);
+  });
+})
 
 /////////////////////// UPDATE ANIME ///////////////////////////////////
 // Update an Anime
